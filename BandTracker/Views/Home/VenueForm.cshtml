@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+<h2>Add A Venue</h2>
+<form action="/venueForm/add" method="post">
+	<label for ="venuename">Enter Venue Name</label>
+	<div class="form-group">
+		<input type="text" class="form-control" name="venuename">
+	</div>
+	
+	<label for ="venueaddress">Enter the Venue Address</label>
+	<div class="form-group">
+		<input type="text" class="form-control" name="venueaddress">
+	</div>
+	
+	<button type="submit" class="btn btn-info btn-home" name="button">Add</button>
+</form>

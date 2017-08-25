@@ -1,0 +1,20 @@
+@{
+  Layout = "_Layout";
+}
+<div class="well">
+<h2>List of all Bands</h2>
+@if(Model.Count == 0)
+{
+	<h3>There are no bands in the list. Please add a Band.</h3>
+}
+else
+{
+  <ul>
+  @foreach(var band in Model)
+  {
+    <li><a href="/bandDetails/@band.GetId()">@band.GetName()</a></li>
+  }
+  </ul>
+}
+</div>
+<a href="/bandForm"><button type="submit" class="btn btn-info btn-home" name="button">Add</button></a>

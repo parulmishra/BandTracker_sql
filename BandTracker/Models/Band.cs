@@ -116,7 +116,7 @@ namespace BandTracker.Models
 			MySqlConnection conn =DB.Connection();
 			conn.Open();
 
-			MySqlCommand cmd = new MySqlCommand(@"DELETE FROM bands WHERE id=@thisId; DELETE FROM played WHERE band_id =@thisId;",conn);
+			MySqlCommand cmd = new MySqlCommand(@"DELETE FROM bands WHERE id=@thisId; DELETE FROM performances WHERE band_id =@thisId;",conn);
 
 			MySqlParameter idParameter = new MySqlParameter();
 			idParameter.ParameterName = "@thisId";
@@ -187,6 +187,36 @@ namespace BandTracker.Models
 			{
 				conn.Dispose();
 			}
+		}
+		public List<Venue> GetVenues()
+		{
+			List<Venue> venues = new List<Venue>{};
+			MySqlConnection conn = DB.Connection();
+			conn.Open();
+
+			var cmd = conn.CreateCommand() as MySqlCommand;
+			cmd.CommandText = @"SELECT venues.* FROM bands JOIN performances ON(bands.id = performances.band_id) JOIN venues ON(performances.venue_id = venues.id) WHERE bands.id=@bandId;";
+
+			MySqlParameter bandIdParameter= new MySqlParameter();
+			bandIdParameter.ParameterName = "@bandId";
+			bandIdParameter.Value = this._id;
+			cmd.Parameters.Add(bandIdParameter);
+
+			var rdr = cmd.ExecuteReader() as MySqlDataReader;
+			while(rdr.Read())
+			{
+				int venueId = rdr.GetInt32(0);
+				string venueName = rdr.GetString(1);
+				string venueAddress = rdr.GetString(2);
+				Venue venue = new Venue(venueName,venueAddress,venueId);
+				venues.Add(venue);
+			}
+			conn.Close();
+			if (conn != null)
+			{
+				conn.Dispose();
+			}
+			return venues;
 		}
 	}
 }

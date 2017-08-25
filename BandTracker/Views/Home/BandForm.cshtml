@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+<h2>Add A Band</h2>
+<form action="/bandForm/add" method="post">
+	<label for ="bandname">Enter Band Name</label>
+	<div class="form-group">
+		<input type="text" class="form-control" name="bandname">
+	</div>
+	
+	<label for ="bandmember">Enter Total Band Members</label>
+	<div class="form-group">
+		<input type="number" class="form-control" name="bandmember">
+	</div>
+	
+	<button type="submit" class="btn btn-info btn-home" name="button">Add</button>
+</form>

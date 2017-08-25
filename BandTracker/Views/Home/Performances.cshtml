@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+@using BandTracker.Models;
+
+<h4>Total Performances = @Model.Count</h4>
+ <div class="well">
+  <table border="1">
+    <thead>
+      <th>SN</th>
+      <th>Band Name</th>
+      <th>Venue Name</th>
+      <th>Performance Date</th>
+    </thead>
+    <tbody>
+	@foreach(var performance in Model)
+        {
+          <tr>
+          <td>@performance.GetId()</td>
+          <td>
+		  <a href="/allPerformances/band/@performance.GetBandId()">@Band.Find(@performance.GetBandId()).GetName()</a>
+		  </td>
+          <td>
+          <a href="/allPerformances/venue/@performance.GetVenueId()">@Venue.Find(@performance.GetVenueId()).GetName()</a>
+          </td>
+          <td> @performance.GetPerformanceDate()</td>
+          </tr>
+        }
+	</tbody>
+</table>
