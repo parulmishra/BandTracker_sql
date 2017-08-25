@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Library
+namespace BandTracker
 {
   public class Startup
   {
@@ -33,8 +33,8 @@ namespace Library
     }
   }
 
-  public static class DBConfiguration
-    {
-        public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=bandtracker;";
+	public static class DBConfiguration
+	{
+        public static string ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=bandtracker;";
     }
 }
