@@ -18,10 +18,10 @@
           <tr>
           <td>@performance.GetId()</td>
           <td>
-		  <a href="/allPerformances/band/@performance.GetBandId()">@Band.Find(@performance.GetBandId()).GetName()</a>
+		  <a href="/bandDetails/@performance.GetBandId()">@Band.Find(@performance.GetBandId()).GetName()</a>
 		  </td>
           <td>
-          <a href="/allPerformances/venue/@performance.GetVenueId()">@Venue.Find(@performance.GetVenueId()).GetName()</a>
+          <a href="/venueDetails/@performance.GetVenueId()">@Venue.Find(@performance.GetVenueId()).GetName()</a>
           </td>
           <td> @performance.GetPerformanceDate()</td>
           </tr>

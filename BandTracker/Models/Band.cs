@@ -188,6 +188,31 @@ namespace BandTracker.Models
 				conn.Dispose();
 			}
 		}
+		public void AddVenue(Venue newVenue)
+		{
+			MySqlConnection conn = DB.Connection();
+			conn.Open();
+
+			var cmd = conn.CreateCommand() as MySqlCommand;
+			cmd.CommandText = @"INSERT INTO performances(band_id, venue_id) VALUES (@bandId, @venueId);";
+
+			MySqlParameter venueIdParameter = new MySqlParameter();
+			venueIdParameter.ParameterName = "@venueId";
+			venueIdParameter.Value = newVenue.GetId();
+			cmd.Parameters.Add(venueIdParameter);
+
+			MySqlParameter bandIdParameter = new MySqlParameter();
+			bandIdParameter.ParameterName = "@bandId";
+			bandIdParameter.Value = this._id;
+			cmd.Parameters.Add(bandIdParameter);
+
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			if (conn != null)
+			{
+				conn.Dispose();
+			}
+		}
 		public List<Venue> GetVenues()
 		{
 			List<Venue> venues = new List<Venue>{};
@@ -217,6 +242,36 @@ namespace BandTracker.Models
 				conn.Dispose();
 			}
 			return venues;
+		}
+		public void AddToPerformance(Venue newVenue)
+		{
+			MySqlConnection conn = DB.Connection();
+			conn.Open();
+
+			var cmd = conn.CreateCommand() as MySqlCommand;
+			cmd.CommandText = @"INSERT INTO performances(band_id, venue_id, date) VALUES (@bandId, @venueId,@date);";
+
+			MySqlParameter bandIdParameter = new MySqlParameter();
+			bandIdParameter.ParameterName = "@bandId";
+			bandIdParameter.Value = this._id;
+			cmd.Parameters.Add(bandIdParameter);
+
+			MySqlParameter venueIdParameter = new MySqlParameter();
+			venueIdParameter.ParameterName = "@venueId";
+			venueIdParameter.Value = newVenue.GetId();
+			cmd.Parameters.Add(venueIdParameter);
+
+			MySqlParameter dateParameter = new MySqlParameter();
+			dateParameter.ParameterName = "@date";
+			dateParameter.Value = DateTime.Now;
+			cmd.Parameters.Add(dateParameter);
+
+			cmd.ExecuteNonQuery();
+			conn.Close();
+			if (conn != null)
+			{
+				conn.Dispose();
+			}
 		}
 	}
 }

@@ -1,0 +1,39 @@
+@{
+    Layout = "_Layout";
+}
+
+<div class = "well">
+   <h2><strong>@Model["venue"].GetName() Details</strong></h2>
+   <h3>NAME: @Model["venue"].GetName()</h3>
+   <h3>ADDRESS: @Model["venue"].GetAddress()</h3>
+   <h3>BANDS PERFORMED ON THIS VENUE:</h3>
+   
+   <button class="btn btn-warning"><a href='/venue/delete/@Model["venue"].GetId()'>Delete This Venue</a></button>
+   @if(Model["bands"].Count == 0)
+   {
+	<h3>No Band has performed on this Venue yet.</h3>
+   }
+   else
+   {
+	@foreach(var band in @Model["venue"].GetBands())
+	{
+	 <h3><a href='/bands/@band.GetId()'>@band.GetName()</a></h3>
+	 <!--<button class="btn btn-default" type="button"><a href='/bands/update/@band.GetId()'>UPDATE BAND INFORMATION</a></button>
+	 <button class="btn btn-default"><a href='/bands/delete/@band.GetId()'>DELETE</a></button>-->
+	} 
+   } 
+   <h3>Add A Band for this Venue</h3>
+	<form action='/venues/@Model["venue"].GetId()/addband' method="post">
+	<label for ="bandname">Select Band</label>
+	<select name="bandid" id="bandid">
+	@foreach(var band in @Model["bands"])
+	{
+		<option value="@band.GetId()" selected> @band.GetName()</option>		
+	}
+	</select>
+	<input type="date" class="form-control" name="date" id="date">
+	
+	<button type="submit" class="btn btn-info btn-home" name="button">Add Band</button>
+</form> 
+</div>
+

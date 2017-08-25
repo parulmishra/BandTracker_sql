@@ -43,15 +43,61 @@ namespace BandTracker.Controllers
 		newBand.Save();
 		return RedirectToAction("Bands");
     }
+	
+	[HttpPost("/bands/{id}/addvenue")]
+    public ActionResult AddVenueForBand(int id)
+    {
+		int venueId = int.Parse(Request.Form["venueid"]);
+		DateTime date = DateTime.Parse(Request.Form["date"]);
+		Performance perf = new Performance(id, venueId, date);
+		perf.Save();
+		Dictionary<string,object> model = new Dictionary<string,object>();
+        Band selectedBand = Band.Find(id);
+        model["band"] = selectedBand;
+        model["venues"] = Venue.GetAll();
+		return View("BandDetails", model);
+    }
+	
+	[HttpPost("/venues/{id}/addband")]
+    public ActionResult AddBandForVenue(int id)
+    {
+		int bandId = int.Parse(Request.Form["bandid"]);
+		DateTime date = DateTime.Parse(Request.Form["date"]);
+		Performance perf = new Performance(bandId, id, date);
+		perf.Save();
+		Dictionary<string,object> model = new Dictionary<string,object>();
+        Venue selectedVenue = Venue.Find(id);
+        model["bands"] = Band.GetAll();
+        model["venue"] = selectedVenue;
+		return View("VenueDetails", model);
+    }
+	
 	[HttpGet("/bandDetails/{id}")]
     public ActionResult BandDetails(int id)
     {
       Dictionary<string,object> model = new Dictionary<string,object>();
       Band selectedBand = Band.Find(id);
       model["band"] = selectedBand;
-      model["venues"] = selectedBand.GetVenues();
+      model["venues"] = Venue.GetAll();
       return View(model);
     }
+	
+	[HttpGet("/band/delete/{id}")]
+    public ActionResult DeleteBandDetails(int id)
+    {
+	  var band = Band.Find(id);
+	  band.Delete();
+      return RedirectToAction("Bands");
+    }
+	
+	[HttpGet("/venue/delete/{id}")]
+    public ActionResult DeleteVenueDetails(int id)
+    {
+	  var venue = Venue.Find(id);
+	  venue.Delete();
+      return RedirectToAction("Venues");
+    }
+	
 	[HttpGet("/venueForm")]
     public ActionResult VenueForm()
     {
