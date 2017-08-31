@@ -6,3 +6,11 @@ C:\Users\amdubedy\desktop\mywork\BandTracker.Solution\BandTracker\bin\Debug\netc
 C:\Users\amdubedy\desktop\mywork\BandTracker.Solution\BandTracker\bin\Debug\netcoreapp1.1\BandTracker.pdb
 C:\Users\amdubedy\desktop\mywork\BandTracker.Solution\BandTracker\obj\Debug\netcoreapp1.1\BandTracker.dll
 C:\Users\amdubedy\desktop\mywork\BandTracker.Solution\BandTracker\obj\Debug\netcoreapp1.1\BandTracker.pdb
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\bin\Debug\netcoreapp1.1\BandTracker.deps.json
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\bin\Debug\netcoreapp1.1\BandTracker.runtimeconfig.json
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\bin\Debug\netcoreapp1.1\BandTracker.runtimeconfig.dev.json
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\bin\Debug\netcoreapp1.1\BandTracker.dll
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\bin\Debug\netcoreapp1.1\BandTracker.pdb
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\obj\Debug\netcoreapp1.1\BandTracker.AssemblyInfo.cs
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\obj\Debug\netcoreapp1.1\BandTracker.dll
+C:\Users\amdubedy\Documents\gitrepo\BandTracker_sql\BandTracker\obj\Debug\netcoreapp1.1\BandTracker.pdb

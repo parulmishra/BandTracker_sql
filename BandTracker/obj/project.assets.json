@@ -9655,16 +9655,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\amdubedy\\desktop\\mywork\\BandTracker.Solution\\BandTracker\\BandTracker.csproj",
+      "projectUniqueName": "C:\\Users\\amdubedy\\Documents\\gitrepo\\BandTracker_sql\\BandTracker\\BandTracker.csproj",
       "projectName": "BandTracker",
-      "projectPath": "C:\\Users\\amdubedy\\desktop\\mywork\\BandTracker.Solution\\BandTracker\\BandTracker.csproj",
-      "outputPath": "C:\\Users\\amdubedy\\desktop\\mywork\\BandTracker.Solution\\BandTracker\\obj\\",
+      "projectPath": "C:\\Users\\amdubedy\\Documents\\gitrepo\\BandTracker_sql\\BandTracker\\BandTracker.csproj",
+      "outputPath": "C:\\Users\\amdubedy\\Documents\\gitrepo\\BandTracker_sql\\BandTracker\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
       "files": {
-        "lib/netcoreapp1.1/BandTracker.dll": "C:\\Users\\amdubedy\\desktop\\mywork\\BandTracker.Solution\\BandTracker\\bin\\placeholder\\netcoreapp1.1\\BandTracker.dll"
+        "lib/netcoreapp1.1/BandTracker.dll": "C:\\Users\\amdubedy\\Documents\\gitrepo\\BandTracker_sql\\BandTracker\\bin\\placeholder\\netcoreapp1.1\\BandTracker.dll"
       },
       "frameworks": {
         "netcoreapp1.1": {

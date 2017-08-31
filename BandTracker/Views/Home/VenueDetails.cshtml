@@ -17,7 +17,7 @@
    {
 	@foreach(var band in @Model["venue"].GetBands())
 	{
-	 <h3><a href='/bands/@band.GetId()'>@band.GetName()</a></h3>
+	 <h3><a href='/bandDetails/@band.GetId()'>@band.GetName()</a></h3>
 	 <!--<button class="btn btn-default" type="button"><a href='/bands/update/@band.GetId()'>UPDATE BAND INFORMATION</a></button>
 	 <button class="btn btn-default"><a href='/bands/delete/@band.GetId()'>DELETE</a></button>-->
 	} 
